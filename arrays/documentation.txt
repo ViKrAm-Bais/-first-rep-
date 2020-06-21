@@ -1,0 +1,1 @@
+arrays is collection of homogeneus data elements stored in continous memory location
