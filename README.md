@@ -1,1 +1,2 @@
 this repo is based on data structure and algorithms in c++
+A data structure is a particular way of organizing data in a computer so that it can be used effectively. 
