@@ -1,3 +1,5 @@
+Recursion is a process in which a function calls itself as a subroutine. This allows the function to be repeated several times, since it calls itself during its execution. Functions that incorporate recursion are called recursive functions.
+
 types of recursion:
 1] head recursion
 2] tail recursion
