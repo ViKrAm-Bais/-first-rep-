@@ -26,7 +26,7 @@ public:
   void enqueue(Node* x);
   Node* dequeue();
 };
-
+b
 Queue:: Queue(int size)
 {
   this->size = size;
