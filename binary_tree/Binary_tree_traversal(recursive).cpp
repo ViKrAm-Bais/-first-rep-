@@ -48,12 +48,12 @@ node* createtree(node* root)
   }
   return root;
 }
-void preordert(node *root)
+void preorder(node *root)
 {
   if(root == NULL) return;
   cout<<root->data<<" ";
-  preordert(root->lc);
-  preordert(root->rc);
+  preorder(root->lc);
+  preorder(root->rc);
 }
 int main()
 {
@@ -62,6 +62,6 @@ int main()
   cout<<"Creating Binary Tree"<<endl;
   root = createtree(root);
   cout<<"Printing Tree Preorder"<<endl;
-  preordert(root);
+  preorder(root);
   return 0;
 }
