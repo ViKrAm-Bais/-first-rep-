@@ -26,7 +26,7 @@ public:
   void enqueue(Node* x);
   Node* dequeue();
 };
-b
+
 Queue:: Queue(int size)
 {
   this->size = size;
@@ -100,9 +100,7 @@ void postorder(Node* p)
     cout<<p->data<<", "<<flush;
   }
 }
-
 Node* root = new Node;
-
 void createTree()
 {
   Node* p;
