@@ -1,3 +1,17 @@
+//
+//
+//
+//
+/*               Tree
+
+                   4          //root
+                 /  \
+               2    6
+             /     /
+           1     3
+                  \
+                   4
+*/
 #include<iostream>
 #include<queue>
 using namespace std;
@@ -52,29 +66,6 @@ void preordert(node *root)
   preordert(root->lc);
   preordert(root->rc);
 }
-int total_nodes(node *root)
-{
-  int x, y;
-  if(root != NULL)
-  {
-    x = total_nodes(root->lc);
-    y = total_nodes(root->rc);
-    return x+y+1;
-  }
-  return 0;
-}
-int total_leafs(node *root)
-{
-  int x, y;
-  if(root != NULL)
-  {
-    x = total_leafs(root->lc);
-    y = total_leafs(root->rc);
-    if(root->lc == NULL && root->rc ==NULL) return x+y+1;
-    else return x+y;
-  }
-  return 0;
-}
 int height(node *root)
 {
   int x, y;
@@ -94,8 +85,6 @@ int main()
   cout<<"Printing Tree Preorder"<<endl;
   preordert(root);
   cout<<endl;
-  cout<<"Total Nodes: "<<total_nodes(root)<<endl;
-  cout<<"Total leafs: "<<total_leafs(root)<<endl;
   cout<<"Height: "<<height(root);
   return 0;
 }

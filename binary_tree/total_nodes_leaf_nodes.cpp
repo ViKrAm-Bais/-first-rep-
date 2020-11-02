@@ -59,40 +59,44 @@ node* createtree(node* root)
   }
   return root;
 }
-void preorder(node *root)
+void preordert(node *root)
 {
   if(root == NULL) return;
   cout<<root->data<<" ";
-  preorder(root->lc);
-  preorder(root->rc);
+  preordert(root->lc);
+  preordert(root->rc);
 }
-void postorder(node *root)
+int total_nodes(node *root)
 {
-  if(root == NULL) return;
-  postorder(root->lc);
-  postorder(root->rc);
-  cout<<root->data<<" ";
+  int x, y;
+  if(root != NULL)
+  {
+    x = total_nodes(root->lc);
+    y = total_nodes(root->rc);
+    return x+y+1;
+  }
+  return 0;
 }
-void inorder(node *root)
+int total_leafs(node *root)
 {
-  if(root == NULL) return;
-  inorder(root->lc);
-  cout<<root->data<<" ";
-  inorder(root->rc);
+  int x, y;
+  if(root != NULL)
+  {
+    x = total_leafs(root->lc);
+    y = total_leafs(root->rc);
+    if(root->lc == NULL && root->rc ==NULL) return x+y+1;
+    else return x+y;
+  }
+  return 0;
 }
 int main()
 {
-  node *root;
-  root = new node;
+  node *root = new node;
   root = createtree(root);
-  cout<<"Preorder Traversal"<<endl;
-  preorder(root);
+  cout<<"Printing Tree Preorder"<<endl;
+  preordert(root);
   cout<<endl;
-  cout<<"Inorder Traversal"<<endl;
-  inorder(root);
-  cout<<endl;
-  cout<<"Postorder Traversal"<<endl;
-  postorder(root);
-  cout<<endl;
+  cout<<"Total Nodes: "<<total_nodes(root)<<endl;
+  cout<<"Total Leafs: "<<total_leafs(root)<<endl;
   return 0;
 }
