@@ -76,6 +76,7 @@ node *rsu(node *root)
 node *main_root;
 node *deleteTree(node* root, int val)
 {
+  node *q;
   if(root == NULL) return NULL;
   if(root->lc == NULL && root->rc == NULL)
   {
@@ -83,24 +84,24 @@ node *deleteTree(node* root, int val)
     {
       root = NULL;
     }
+    delete root;
     return NULL;
   }
-  if(root->data > val) root = deleteTree(root->lc, val);
-  else if(root->data < val) root = deleteTree(root->rc, val);
+  if(root->data > val) root->lc = deleteTree(root->lc, val);
+  else if(root->data < val) root->rc = deleteTree(root->rc, val);
   else
   {
-    node *q;
-    if(height(root->rc) > height(root->lc))
-    {
-      q = lsu(root->rc);
-      root->data = q->data;
-      root->rc = deleteTree(root->rc, q->data);
-    }
-    else
+    if(height(root->rc) < height(root->lc))
     {
       q = rsu(root->lc);
       root->data = q->data;
       root->lc = deleteTree(root->lc, q->data);
+    }
+    else
+    {
+      q = lsu(root->rc);
+      root->data = q->data;
+      root->rc = deleteTree(root->rc, q->data);
     }
   }
   return root;
