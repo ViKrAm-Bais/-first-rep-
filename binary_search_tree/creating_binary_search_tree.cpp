@@ -46,10 +46,19 @@ void preorder(node *root)
   preorder(root->lc);
   preorder(root->rc);
 }
+void postorder(node *root)
+{
+  if(root == NULL) return;
+  postorder(root->lc);
+  postorder(root->rc);
+  cout<<root->data<<" ";
+}
 int main()
 {
   node *root;
   root = createTree(5);
   preorder(root);
+  cout<<endl;
+  postorder(root);
   return 0;
 }
